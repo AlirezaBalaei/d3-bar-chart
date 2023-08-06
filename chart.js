@@ -8,11 +8,12 @@ let width = 0
 let height = 0
 
 // Configs
-config = {}
-config.xAxis = {}
-config.xAxis.label = {}
-config.xAxis.label.color = "#03396c"
-
+let config = {
+  xAxis : {
+    label : {color : "#6497b1"},
+    tick: {color: "#03396c"}
+  }
+}
 // Draw chart with given data
 const draw = ({data}) => {
   removeSvg()
@@ -53,6 +54,12 @@ const draw = ({data}) => {
     .selectAll("text")
     .attr("fill", config.xAxis.label.color)
     .attr("font-size", 20 * resolutionScale)
+    .attr("font-family", "Plus Jakarta Sans")
+    
+  var xAxisLine = xAxis
+    .selectAll("line,path")
+    .attr("stroke", config.xAxis.tick.color)
+    .attr("stroke-width", 0.3)
 
 }
 
